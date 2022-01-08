@@ -1,6 +1,6 @@
 <template>
-
-
+    <button @click="increment">добавить</button>
+    <div>{{ count }}</div>
 </template>
 
 <script>
@@ -8,7 +8,17 @@
 
 export default {
   name: 'App',
-
+  methods: {
+    increment() {
+      this.$store.commit('increment')
+      console.log(this.$store.state.count)
+    }
+  },
+  computed: {
+    count () {
+      return this.$store.state.count
+    }
+  }
 }
 </script>
 
